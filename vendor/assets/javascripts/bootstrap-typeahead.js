@@ -237,10 +237,16 @@
         case 18: // alt
           break
 
-        case 9: // tab
         case 13: // enter
           if (!this.shown) return
           this.select()
+          break
+
+        case 9: // tab
+          var that = this
+          e.stopPropagation()
+          e.preventDefault()
+          setTimeout(function () { that.hide() }, 150)
           break
 
         case 27: // escape
